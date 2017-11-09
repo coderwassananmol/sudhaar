@@ -22,3 +22,20 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+/*
+ * The hackModel faker method to test the POST data.
+ */
+$factory->define(App\hackModel::class,function (Faker\Generator $faker) {
+    return [
+        'category' => $faker->lastName,
+        'place' => $faker->streetAddress,
+        'officer' => $faker->name,
+        'service' => $faker->firstName,
+        'case' => $faker->text,
+        'userid' => \Illuminate\Support\Facades\Auth::user()->id,
+        'proof' => $faker->boolean(0),
+        'anonymous' => $faker->boolean('80'),
+        'remember_token'=>str_random(10)
+    ];
+});
